@@ -10,8 +10,8 @@ ai engineer
 react · nodejs · python · databases  
 ai · c++ · opencv
 
-［ links ］
+［ contact ］
 ────────────────────────
-<a href="https://codeforces.com/profile/snowsadh">codeforces</a> · <a href="mailto:snowork@proton.com">snowork@proton.me</a>
+<a href="mailto:snowork@proton.com">snowork@proton.me</a>
   </pre>
 </div>
