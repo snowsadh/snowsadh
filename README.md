@@ -9,8 +9,8 @@
 <hr />
 
 <picture>
-  <source media="(max-width: 600px)" srcset="assets/side-mobile.svg" />
-  <img align="right" src="assets/side.svg" alt="Tools · Python · PyTorch · Transformers · PEFT · LangGraph · FastAPI · PostgreSQL · TypeScript · OpenCV · ice keys" />
+  <source media="(max-width: 600px)" srcset="https://snowsadh-visits.snoe.workers.dev/side-mobile.svg" />
+  <img align="right" src="https://snowsadh-visits.snoe.workers.dev/side.svg" alt="Tools · Python · PyTorch · Transformers · PEFT · LangGraph · FastAPI · PostgreSQL · TypeScript · OpenCV · ice keys" />
 </picture>
 
 <h4>Wins</h4>
