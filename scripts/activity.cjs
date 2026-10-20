@@ -1,5 +1,3 @@
-// Selected option 3: 26 completed weeks; annual contributions centred, lifetime stars.
-// Run with an authenticated `gh` CLI, or GH_TOKEN inside GitHub Actions.
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');

@@ -1,4 +1,4 @@
-name: Update GitHub stats
+name: Refresh GitHub activity graph and stats
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
       - name: Generate stats images
         env:
           GH_TOKEN: ${{ github.token }}
-        run: node scripts/update-github-stats.cjs
+        run: node scripts/activity.cjs
       - name: Commit refreshed images if changed
         run: |
           git add -- assets/github-stats.svg assets/github-stats-mobile.svg
