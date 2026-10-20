@@ -75,12 +75,11 @@ function render(collection, now, compact) {
       <text x="${x}" y="${y+23}" text-anchor="middle" class="${compact ? 'axis' : 'small'}">${label}</text>`;
   });
   const metricStart = isoDay(new Date(now - 365*86400000));
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height+32}" viewBox="0 0 ${width} ${height+32}" role="img" aria-labelledby="title desc">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
   <title id="title">${escape(username)} weekly GitHub contributions</title>
   <desc id="desc">${total} contributions in 26 completed Sunday–Saturday weeks, ${weeks[0].date} through ${weeks.at(-1).end}. Each point is one weekly total, including zero weeks. ${collection.totalPullRequestContributions} pull requests from ${metricStart} through ${today}. ${annualContributions} contributions across 365 calendar days, ${annualDays[0].date} through ${today}. ${collection.starsEarned} lifetime stars earned on owned public non-fork repositories. Updated ${labelDate(today)}.</desc>
   <style>text{font-family:Arial,Helvetica,sans-serif}.small{font-family:monospace;font-size:12px;fill:#8ca1b2}.axis{font-family:monospace;font-size:11px;fill:#829aab}.number{font-size:25px;fill:#93b2ce}.grid{fill:none;stroke:#273641;stroke-width:1}</style>
-  <text x="${left}" y="18" class="small">activity</text>
-  <g transform="translate(0 32)">${content}</g>
+  ${content}
 </svg>\n`;
 }
 
@@ -102,9 +101,7 @@ function selfTest() {
     assert.equal(svg.match(/<polyline points="([^"]+)"/)[1].split(' ').length,26);
     const visibleText=[...svg.matchAll(/<text\b[^>]*>([^<]+)<\/text>/g)].map(m=>m[1]);
     assert.deepEqual(visibleText.slice(-6),['37','pull requests','964','contributions','24','stars earned']);
-    assert.equal(visibleText[0],'activity');
-    assert.equal(visibleText.filter(t=>t==='activity').length,1);
-    assert(!visibleText.some(t=>/months|completed weeks/.test(t)));
+    assert(!visibleText.some(t=>/months|activity|completed weeks/.test(t)));
     assert(svg.includes(`x="${(compact?360:900)/2}" y="${compact?193:209}" text-anchor="middle" class="number">964`));
     assert(!/NaN|Infinity|undefined/.test(svg));
     const cleared=weeks.map(w=>({contributionDays:w.contributionDays.map(d=>({...d,contributionCount:0}))}));

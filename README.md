@@ -16,6 +16,8 @@ ai · c++ · opencv
   </pre>
 </div>
 
+<p><samp>activity</samp></p>
+
 <p align="center">
   <a href="https://github.com/snowsadh?tab=overview">
     <picture>
