@@ -17,6 +17,15 @@ ai · c++ · opencv
 </div>
 
 <p align="center">
+  <a href="https://github.com/snowsadh?tab=overview">
+    <picture>
+      <source media="(max-width: 600px)" srcset="assets/github-stats-mobile.svg" />
+      <img src="assets/github-stats.svg" alt="GitHub activity" width="100%" />
+    </picture>
+  </a>
+</p>
+
+<p align="center">
   <img src="assets/snowfall.gif" alt="snowfall" width="100%" />
 </p>
 
