@@ -1,0 +1,32 @@
+name: Refresh GitHub activity graph and stats
+
+on:
+  schedule:
+    - cron: '37 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-stats-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Generate stats images
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/activity.cjs
+      - name: Commit refreshed images if changed
+        run: |
+          git add -- assets/github-stats.svg assets/github-stats-mobile.svg
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'refresh GitHub stats'
+          git push
