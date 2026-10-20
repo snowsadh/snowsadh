@@ -15,3 +15,11 @@ ai · c++ · opencv
 <a href="mailto:snowork@proton.com">snowork@proton.me</a>
   </pre>
 </div>
+
+<p align="center">
+  <img src="assets/snowfall.gif" alt="snowfall" width="100%" />
+</p>
+
+<p align="right">
+  <a href="https://www.patreon.com/AnasAbdin"><sub>@anasabdin</sub></a><sub> · personal remix</sub>
+</p>
