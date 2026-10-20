@@ -7,19 +7,13 @@
   <br clear="all" />
 </div>
 
-<div align="center">
-  <pre>
+<p><img src="assets/divider.svg" alt="" width="100%" height="1" /></p>
 
-［ tech stack ］
-────────────────────────
-react · nodejs · python · databases  
-ai · c++ · opencv
+<br />
+<br />
+<br />
 
-［ contact ］
-────────────────────────
-<a href="mailto:snowork@proton.com">snowork@proton.me</a>
-  </pre>
-</div>
+<p><img src="assets/divider.svg" alt="" width="100%" height="1" /></p>
 
 <h4>Activity</h4>
 
