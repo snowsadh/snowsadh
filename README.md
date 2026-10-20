@@ -6,11 +6,31 @@
   </p>
 </div>
 
-<hr />
+<table align="center" width="100%">
+  <tr>
+    <td width="60%" valign="top">
+      <h4 align="center">Wins</h4>
+      <p><samp>1st · OpenAI BuildWeek</samp></p>
+      <p><samp>1st · Automate India <sub>· Microsoft</sub></samp></p>
+      <p><samp>1st · T-Hacks 8.0 <sub>· IEEE GGSIPU</sub></samp></p>
+      <p><samp>2nd · HackVision <sub>· IEEE NSUT</sub></samp></p>
+    </td>
+    <td width="40%" valign="top">
+      <h4 align="center">Tools</h4>
+      <p>
+        <picture>
+          <source media="(max-width: 600px)" srcset="assets/tools-mobile.svg" />
+          <img src="assets/tools.svg" alt="Python · PyTorch · Transformers · PEFT · LangGraph · FastAPI · PostgreSQL · TypeScript · OpenCV" width="100%" />
+        </picture>
+      </p>
+      <p><img src="assets/visits.svg" alt="ice keys" width="100%" /></p>
+    </td>
+  </tr>
+</table>
 
-<br />
-<br />
-<br />
+<p align="center">
+  <samp><a href="https://www.kaggle.com/snowml">kaggle</a> · <a href="https://huggingface.co/snowsadh">hugging face</a> · <a href="mailto:snowork@proton.me">snowork@proton.me</a></samp>
+</p>
 
 <hr />
 
