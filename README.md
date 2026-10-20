@@ -2,18 +2,17 @@
   <img align="right" src="assets/bunny.png" alt="snow bunny" width="26%" />
   <p align="center">
     <a href="mailto:snowork@proton.me"><picture><source media="(max-width: 600px)" srcset="assets/snow-mobile.png" /><img src="assets/snow.png" alt="snow · snowork@proton.me" width="26%" /></picture></a><br />
-    <img src="assets/signal.gif" alt="agentic AI · applied ML · web development" width="68%" />
+    <img src="assets/signal.gif" alt="applied AI · ML research · software development" width="68%" />
   </p>
-  <br clear="all" />
 </div>
 
-<p><img src="assets/divider.svg" alt="" width="100%" height="1" /></p>
+<hr />
 
 <br />
 <br />
 <br />
 
-<p><img src="assets/divider.svg" alt="" width="100%" height="1" /></p>
+<hr />
 
 <h4>Activity</h4>
 
