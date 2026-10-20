@@ -1,9 +1,14 @@
-<div align="center">
-  <pre style="font-family: 'IBM Plex Mono', monospace; text-align: center; line-height: 1.8; font-size: 14px; color: #888;">
+<div>
+  <img align="right" src="assets/bunny.png" alt="snow bunny" width="26%" />
+  <p align="center">
+    <a href="mailto:snowork@proton.me"><picture><source media="(max-width: 600px)" srcset="assets/snow-mobile.png" /><img src="assets/snow.png" alt="snow · snowork@proton.me" width="26%" /></picture></a><br />
+    <img src="assets/signal.gif" alt="agentic AI · applied ML · web development" width="68%" />
+  </p>
+  <br clear="all" />
+</div>
 
-［ snow ］
-────────────────────────
-ai engineer
+<div align="center">
+  <pre>
 
 ［ tech stack ］
 ────────────────────────
@@ -16,7 +21,7 @@ ai · c++ · opencv
   </pre>
 </div>
 
-<p><samp>activity</samp></p>
+<h4>Activity</h4>
 
 <p align="center">
   <a href="https://github.com/snowsadh?tab=overview">

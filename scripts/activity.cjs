@@ -4,6 +4,9 @@ const assert = require('node:assert/strict');
 const { execFileSync } = require('node:child_process');
 const username = process.env.GITHUB_REPOSITORY_OWNER || 'snowsadh';
 const repo = path.resolve(__dirname, '..');
+const fontFaces = [['ActivitySans','fira-sans-book'],['ActivityMono','fira-code-regular']]
+  .map(([family,file]) => `@font-face{font-family:${family};src:url(data:font/woff2;base64,${fs.readFileSync(path.join(repo,'assets/fonts',file+'.woff2')).toString('base64')}) format('woff2');font-weight:400;font-style:normal}`)
+  .join('');
 const query = `query($login:String!,$from:DateTime!,$to:DateTime!,$endCursor:String){
   user(login:$login){contributionsCollection(from:$from,to:$to){
     totalPullRequestContributions
@@ -49,12 +52,12 @@ function render(collection, now, compact) {
     [collection.starsEarned, 'stars earned']
   ];
   metrics.forEach(([value]) => assert(Number.isSafeInteger(value) && value >= 0));
-  const width = compact ? 360 : 900, height = compact ? 242 : 258;
-  const left = compact ? 28 : 30, right = width - (compact ? 10 : 16), top = 18, bottom = compact ? 121 : 137;
+  const width = compact ? 360 : 900, height = compact ? 280 : 296;
+  const left = 40, right = width - (compact ? 10 : 16), top = 56, bottom = compact ? 159 : 175;
   const max = Math.max(5, Math.ceil(Math.max(...weeks.map(w => w.count)) / 10) * 10);
   const point = (w, i) => [left + i * (right - left) / 25, bottom - w.count / max * (bottom - top)];
   const total = weeks.reduce((sum, w) => sum + w.count, 0);
-  let content = '';
+  let content = `<text x="${left}" y="27" class="small">Weekly contributions</text><text x="${right}" y="27" text-anchor="end" class="small">${total} in this period</text>`;
   for (const value of [0, max / 2, max]) {
     const y = bottom - value / max * (bottom - top);
     content += `<path d="M${left} ${y}H${right}" class="grid"/>
@@ -76,7 +79,7 @@ function render(collection, now, compact) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
   <title id="title">${escape(username)} weekly GitHub contributions</title>
   <desc id="desc">${total} contributions in 26 completed Sunday–Saturday weeks, ${weeks[0].date} through ${weeks.at(-1).end}. Each point is one weekly total, including zero weeks. ${collection.totalPullRequestContributions} pull requests from ${metricStart} through ${today}. ${annualContributions} contributions across 365 calendar days, ${annualDays[0].date} through ${today}. ${collection.starsEarned} lifetime stars earned on owned public non-fork repositories. Updated ${labelDate(today)}.</desc>
-  <style>text{font-family:Arial,Helvetica,sans-serif}.small{font-family:monospace;font-size:12px;fill:#8ca1b2}.axis{font-family:monospace;font-size:11px;fill:#829aab}.number{font-size:25px;fill:#93b2ce}.grid{fill:none;stroke:#273641;stroke-width:1}</style>
+  <style>${fontFaces}text{font-family:ActivitySans,sans-serif}.small{font-family:ActivityMono,monospace;font-size:${compact?10:12}px;fill:#8ca1b2}.axis{font-family:ActivityMono,monospace;font-size:11px;fill:#829aab}.number{font-size:25px;fill:#93b2ce}.grid{fill:none;stroke:#273641;stroke-width:1}</style>
   ${content}
 </svg>\n`;
 }
@@ -100,7 +103,10 @@ function selfTest() {
     const visibleText=[...svg.matchAll(/<text\b[^>]*>([^<]+)<\/text>/g)].map(m=>m[1]);
     assert.deepEqual(visibleText.slice(-6),['37','pull requests','964','contributions','24','stars earned']);
     assert(!visibleText.some(t=>/months|activity|completed weeks/.test(t)));
-    assert(svg.includes(`x="${(compact?360:900)/2}" y="${compact?193:209}" text-anchor="middle" class="number">964`));
+    assert.equal(visibleText[0],'Weekly contributions');
+    assert.equal(visibleText[1],'9 in this period');
+    assert(svg.includes(`x="${(compact?360:900)/2}" y="${compact?231:247}" text-anchor="middle" class="number">964`));
+    assert(svg.includes('font-family:ActivitySans')&&svg.includes('font-family:ActivityMono'));
     assert(!/NaN|Infinity|undefined/.test(svg));
     const cleared=weeks.map(w=>({contributionDays:w.contributionDays.map(d=>({...d,contributionCount:0}))}));
     assert(render({...sample,contributionCalendar:{weeks:cleared}},now,compact).includes('0 contributions'));
