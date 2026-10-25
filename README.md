@@ -16,6 +16,7 @@
 <h4>Wins</h4>
 
 <p><samp>1st · OpenAI BuildWeek</samp></p>
+<p><samp>1st · Hacktoberfest · ACT GGSIPU</samp></p>
 <p><samp>1st · Automate India · Microsoft</samp></p>
 <p><samp>1st · T-Hacks 8.0 · IEEE GGSIPU</samp></p>
 <p><samp>2nd · HackVision · IEEE NSUT</samp></p>
